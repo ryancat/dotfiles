@@ -13,7 +13,7 @@
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
 	# Pull in remote changes for the current repository and all its submodules
-	p = git pull --recurse-submodules
+	p = pull --recurse-submodules
 
 	# Clone a repository including all submodules
 	c = clone --recursive
@@ -88,6 +88,8 @@
 	phf = push origin HEAD --force --no-verify
 	sbr = for-each-ref --sort=committerdate refs/heads/ --format='%(refname) || %(committerdate)' | sed 's/refs/heads///g'
 
+	# Show the user email for the current repository.
+	whoami = config user.email
 
 [apply]
 
